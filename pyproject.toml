@@ -8,6 +8,7 @@ authors = ["Matt Wood <matt@cratebind.com>"]
 python = "3.9.0"
 "discord.py" = "^1.5.1"
 requests = "^2.25.0"
+python-dotenv = "^0.15.0"
 
 [tool.poetry.dev-dependencies]
 

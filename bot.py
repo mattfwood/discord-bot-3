@@ -1,11 +1,15 @@
 # This example requires the 'members' privileged intents
 
 import discord
+import asyncio
 from discord.ext import commands
 import os
 import random
 import json
 import requests
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 description = '''Mongoose Bot, Beware'''
