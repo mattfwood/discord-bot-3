@@ -130,8 +130,8 @@ idna = ">=2.0"
 
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.9.0"
-content-hash = "2cb61958bbd6079feae17c5ef043d8af0d4809ffc26f5280836a63097f205df2"
+python-versions = "3.9.0"
+content-hash = "34f86465004d339958e4dc992fb749dc2687762264d9117da9d9b3fbac2fc416"
 
 [metadata.files]
 aiohttp = [

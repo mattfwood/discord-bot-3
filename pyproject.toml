@@ -5,7 +5,7 @@ description = ""
 authors = ["Matt Wood <matt@cratebind.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.9.0"
+python = "3.9.0"
 "discord.py" = "^1.5.1"
 requests = "^2.25.0"
 
