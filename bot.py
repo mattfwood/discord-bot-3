@@ -63,4 +63,4 @@ async def subreddit(ctx, user_input: str):
         await ctx.send('Subreddit not found')
 
 
-bot.run(os.getenv['DISCORD_TOKEN'])
+bot.run(os.getenv('DISCORD_TOKEN'))
