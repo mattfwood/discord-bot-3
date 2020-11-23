@@ -95,4 +95,4 @@ async def poll(ctx, question: str, *choices: str):
         await message.add_reaction(emoji_options[count])
 
 
-bot.run(os.environ.get('DISCORD_KEY'))
+bot.run(os.environ.get('DISCORD_TOKEN'))
