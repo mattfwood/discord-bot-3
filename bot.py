@@ -8,6 +8,7 @@ import random
 import json
 import requests
 from dotenv import load_dotenv
+from twitter import get_random_tweet
 
 load_dotenv()
 
@@ -30,7 +31,10 @@ async def on_ready():
 
 @bot.command()
 async def roll(ctx, dice: str):
-    """Rolls a dice in NdN format."""
+    """Rolls a dice in NdN format.
+
+    Example: !roll 2d20
+    """
     try:
         rolls, limit = map(int, dice.split('d'))
     except Exception:
@@ -63,4 +67,32 @@ async def subreddit(ctx, user_input: str):
         await ctx.send('Subreddit not found')
 
 
-bot.run(os.environ.get('DISCORD_TOKEN'))
+@bot.command()
+async def twitter(ctx, username: str):
+    """Get a random tweet from the last 20 tweets of a specified account"""
+    try:
+        tweet = get_random_tweet(username)
+        await ctx.send(tweet)
+    except:
+        await ctx.send('Twitter User Not Found')
+
+
+@bot.command()
+async def poll(ctx, question: str, *choices: str):
+    """Start a poll with a specified question and a list of choices"""
+    print(ctx.author.mention)
+    if len(choices) > 8:
+        return await ctx.send('Sorry, maximum 8 options allowed')
+    options = []
+    emoji_options = ['1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣', '6️⃣', '7️⃣', '8️⃣']
+    for choice in choices:
+        options.append(f"{emoji_options[len(options)]}. {choice}")
+    lines = [f"New Poll From {ctx.author.mention}:", f"**{question}**"] + options
+    response = '\n'.join(lines)
+    message = await ctx.send(response)
+
+    for count in range(len(choices)):
+        await message.add_reaction(emoji_options[count])
+
+
+bot.run(os.environ.get('DISCORD_KEY'))
